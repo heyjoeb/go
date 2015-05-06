@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: theft_reports
+#
+#  id             :integer          not null, primary key
+#  bike_id        :integer
+#  status         :integer          default(1)
+#  bike_name      :string
+#  theft_details  :text
+#  theft_location :string
+#  theft_date     :date
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bike_id: 1
+  status: 1
+  bike_name: MyString
+  theft_details: MyText
+  theft_location: MyString
+  theft_date: 2015-04-30
+
+two:
+  bike_id: 1
+  status: 1
+  bike_name: MyString
+  theft_details: MyText
+  theft_location: MyString
+  theft_date: 2015-04-30

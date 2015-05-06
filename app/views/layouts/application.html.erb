@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Go</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%=  stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Varela+Round|Montserrat:700' %>
+</head>
+<body class='custom'>
+  <header>
+    <nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" class="navbar-brand">
+        <h1>Proyecto</h1>
+        </a>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="buscar.html">buscar</a></li>
+          <li class="dropdown" role="presentation">
+          <a aria-expanded="false" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle">
+          reportar <span class="caret"></span>
+          </a>
+          <ul role="menu" class="dropdown-menu">
+            <li><a href="reportar-robo.html">robo de bicicleta</a></li>
+            <li class="divider"></li>
+            <li><a href="reportar-local.html">local que vende bicicletas robadas</a></li>
+          </ul>
+          </li>
+          <li class="disabled"><a href="blog.html">blog</a></li>
+          <li class="disabled"><a href="tienda.html">tienda</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" role="presentation">
+            <a aria-expanded="false" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle">
+            <%= current_user.name %> <span class="caret"></span>
+            </a>
+            <ul role="menu" class="dropdown-menu user-dropdown">
+              <li>
+              <%= link_to 'mi perfil', edit_user_registration_path %>
+              </li>
+              <li class="divider"></li>
+              <li>
+              <%= link_to "salir", destroy_user_session_path, method: :delete, :class => 'btn btn-purple'  %>
+              </li>
+            </ul>
+            </li>
+            <li class="disabled"><a href="../navbar-static-top/">ayuda</a></li>
+          </ul>
+          <% else %>|
+            
+
+
+
+            <li class="dropdown" role="presentation">
+              <a aria-expanded="false" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle">
+              ingreso <span class="caret"></span>
+              </a>
+              <ul role="menu" class="dropdown-menu login-form">
+                <li>
+
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="form-group">
+                      <%= f.label :email, :class => 'sr-only' %>
+                      <%= f.email_field :email, autofocus: true, :placeholder => 'email', :class => 'form-control' %>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.label :password, :class => 'sr-only' %><br />
+                      <%= f.password_field :password, autocomplete: "off", :placeholder => 'contraseña', :class => 'form-control' %>
+                    </div>
+
+                    <div class="actions">
+                      <%= f.submit "listo", :class => 'btn btn-submit' %>
+                    </div>
+                  <% end %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                <a href="" class="link">
+                <span class="icon-container">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewbox="0 0 512 512"><g id="icomoon-ignore">
+                </g>
+                <path class="svg-icon" d="M426.675 0h-341.351c-47.125 0-85.324 38.21-85.324 85.343v341.315c0 47.133 38.199 85.342 85.324 85.342h170.676v-224h-64v-64h64v-48c0-44.183 35.817-80 80-80h80v64h-80c-8.837 0-16 7.164-16 16v48h88l-16 64h-72v224h106.675c47.125 0 85.325-38.209 85.325-85.342v-341.315c0-47.133-38.2-85.343-85.325-85.343z"></path>
+                </svg>
+                </span>
+                vía facebook </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "registro", new_user_registration_path %>
+            </li>
+            <li class="disabled"><a href="../navbar-static-top/">ayuda</a></li>
+
+
+
+
+          <% end %>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    </nav>
+</header>
+<div class="user-actions">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <% if flash[:error] %>
+    <p class="alert alert-danger"><%= flash[:error] %></p>
+  <% end %>
+</div>
+
+
+<%= yield %>
+<footer class="main-footer">
+  <div class="container-fluid">
+    <ul>
+      <li><a href="que-es-esto.html">¿qué es esto?</a></li>
+      <li class="disabled"><a href="">términos de uso</a></li>
+      <li class="disabled"><a href="">política de privacidad</a></li>
+    </ul>
+  </div>
+  <div class="copyright">
+    <p>© 2015 nombre del proyecto</p>
+  </div>
+</footer>
+</body>
+</html>
