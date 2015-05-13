@@ -14,5 +14,6 @@
 #
 
 class TheftReport < ActiveRecord::Base
+  belongs_to :bike
   enum status: [ :active, :closed ]
 end

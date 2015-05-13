@@ -14,5 +14,6 @@
 #
 
 class StoreReport < ActiveRecord::Base
+  belongs_to :user
   enum status: [ :pending, :verified ]
 end

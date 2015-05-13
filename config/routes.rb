@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'thefts/index'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'
   resources :bikes
   resources :store_reports
   resources :theft_reports
+
+  get 'user_bikes' => 'bikes#user_bikes'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

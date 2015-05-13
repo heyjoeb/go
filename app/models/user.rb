@@ -24,4 +24,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name, :last_name
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :store_reports
+  has_many :bikes
 end

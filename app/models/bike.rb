@@ -15,4 +15,7 @@
 #
 
 class Bike < ActiveRecord::Base
+  belongs_to :user
+  has_many :theft_reports
+  validates :bike_name, :bike_brand, :bike_color, :bike_serial, presence: true
 end
