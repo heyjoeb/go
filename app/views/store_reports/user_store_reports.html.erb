@@ -12,27 +12,27 @@
         <path class="svg-icon" d="M304 16.264c-23.453-9.97-57.76-16.264-96-16.264-48.198 0-90.167 9.992-112 24.751v256c21.833-14.759 63.802-24.751 112-24.751 38.24 0 72.547 6.294 96 16.264v-256z"></path>
         </svg>
         </span>
-        Mis reportes de bicicletas </h2>
+        Mis reportes de locales</h2>
         <div class="col-md-6 col-md-offset-3">
             <div class="col-md-12">
-              <% if @theftReports.empty? %>
-              <p>Todavía no ha creado ningún reporte.</p>
+              <% if @current_user.store_reports.empty? %>
+              <p>Reporte los locales que venden bicicletas robadas. Todavía no ha creado ningún reporte.</p>
               <% else %>
                 <p>
-                Haga clic sobre el nombre de la bicicleta para actualizar el estado de su reporte. Para eliminar un reporte por favor haga clic sobre la 'X'.
+                Reporte los locales que venden bicicletas robadas. Haga clic sobre el nombre del local para actualizar el estado de su reporte. Para eliminar un reporte por favor haga clic sobre la 'X'.
                 </p>
                 <ul class="report-list">
-                  <% @theftReports.each do |theft_report| %>
+                  <% @current_user.store_reports.each do |store_report| %>
                     <li>
-                      <%= link_to theft_report.bike.bike_name, edit_theft_report_path(theft_report) %>
-                      <%= link_to 'X', theft_report, method: :delete, data: { confirm: '¿Está seguro que quiere eliminar el reporte de ' + theft_report.bike.bike_name + '?'}, :class => 'btn-close' %>
-                      <span><%= 'estado: ' + theft_report.status %></span>
+                      <%= link_to store_report.store_name, edit_store_report_path(store_report) %>
+                      <%= link_to 'X', store_report, method: :delete, data: { confirm: '¿Está seguro que quiere eliminar el reporte de ' + store_report.store_name + '?'}, :class => 'btn-close' %>
+                      <span><%= 'estado: ' + store_report.status %></span>
                     </li>
                   <% end %>
                 </ul>
                 
               <% end %>
-              <%= link_to 'reportar un robo de bicicleta', new_theft_report_path, :class => 'btn btn-tertiary' %>
+              <%= link_to 'reportar local', new_store_report_path, :class => 'btn btn-tertiary' %>
             </div>
         </div>
       </div>

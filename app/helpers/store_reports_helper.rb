@@ -1,0 +1,2 @@
+module StoreReportsHelper
+end

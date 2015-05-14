@@ -15,5 +15,6 @@
 
 class StoreReport < ActiveRecord::Base
   belongs_to :user
-  enum status: [ :pending, :verified ]
+  enum status: { verificado: 0, pendiente: 1 }
+  validates :store_name, :store_location, :store_details, presence: true
 end

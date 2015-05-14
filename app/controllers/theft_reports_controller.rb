@@ -19,7 +19,7 @@ class TheftReportsController < ApplicationController
     respond_to do |format|
       if @theftReport.save
         # if validation passes, redirect to theft admin
-        format.html { redirect_to :user_theft_reports, :notice => 'Su reporte ha sido creado.' }
+        format.html { redirect_to :user_theft_reports, :notice => 'Su reporte de robo de bicicleta ha sido creado.' }
       else
         # if validation fails, throw error messages
         format.html { render :action => "new" }

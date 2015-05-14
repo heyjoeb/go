@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'user_theft_reports' => 'theft_reports#user_theft_reports'
 
+  get 'user_store_reports' => 'store_reports#user_store_reports'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

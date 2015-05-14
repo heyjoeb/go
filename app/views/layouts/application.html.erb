@@ -50,7 +50,8 @@
               <%= link_to 'mi perfil', edit_user_registration_path %>
               </li>
               <li><%= link_to 'mis bicicletas', user_bikes_path %></li>
-              <li><%= link_to 'mis reportes', user_theft_reports_path %></li>
+              <li><%= link_to 'mis reportes de bicicletas', user_theft_reports_path %></li>
+              <li><%= link_to 'mis reportes de locales', user_store_reports_path %></li>
               <li class="divider"></li>
               <li>
               <%= link_to "salir", destroy_user_session_path, method: :delete, :class => 'btn btn-purple'  %>
