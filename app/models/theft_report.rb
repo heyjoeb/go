@@ -15,5 +15,6 @@
 
 class TheftReport < ActiveRecord::Base
   belongs_to :bike
-  enum status: [ :active, :closed ]
+  enum status: { cerrado: 0, abierto: 1 }
+  validates :theft_details, :theft_location, :theft_date, presence: true
 end

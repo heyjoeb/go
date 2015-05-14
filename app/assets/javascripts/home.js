@@ -7,7 +7,7 @@ $(document).ready(function(){
 
   setTimeout(function() {
     $('.user-actions').fadeOut();
-  }, 1000);
+  }, 2000);
 
   // ADD SLIDEDOWN ANIMATION TO DROPDOWN //
   $('.dropdown').on('show.bs.dropdown', function(){

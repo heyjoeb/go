@@ -1,0 +1,45 @@
+
+<div class="user-profile my-reports">
+  <div class="container">
+    <div class="row content">
+      <div class="col-md-12 section-title">
+        <h2 class="item-title">
+        <span class="icon-container">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewbox="0 0 512 512"><g id="icomoon-ignore">
+        </g>
+        <path class="svg-icon" d="M0 0h64v512h-64v-512z"></path>
+        <path class="svg-icon" d="M416 321.501c41.312 0 77.285-9.992 96-24.75v-256c-18.715 14.759-54.688 24.751-96 24.751s-77.285-9.992-96-24.751v256c18.715 14.758 54.688 24.75 96 24.75z"></path>
+        <path class="svg-icon" d="M304 16.264c-23.453-9.97-57.76-16.264-96-16.264-48.198 0-90.167 9.992-112 24.751v256c21.833-14.759 63.802-24.751 112-24.751 38.24 0 72.547 6.294 96 16.264v-256z"></path>
+        </svg>
+        </span>
+        Mis reportes </h2>
+        <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-12">
+              <% if @theftReports.empty? %>
+              <p>Todavía no ha creado ningún reporte.</p>
+              <% else %>
+                <h3>Reportes de bicicletas</h3>
+                <p>
+                Haga clic sobre el nombre de la bicicleta para actualizar el estado de su reporte. Para eliminar un reporte por favor haga clic sobre la 'X'.
+                </p>
+                <ul class="report-list">
+                  <% @theftReports.each do |theft_report| %>
+                    <li>
+                      <%= link_to theft_report.bike.bike_name, edit_theft_report_path(theft_report) %>
+                      <%= link_to 'X', theft_report, method: :delete, data: { confirm: '¿Está seguro que quiere eliminar el reporte de ' + theft_report.bike.bike_name + '?'}, :class => 'btn-close' %>
+                      <span><%= 'estado: ' + theft_report.status %></span>
+                    </li>
+                  <% end %>
+                </ul>
+                
+              <% end %>
+              <%= link_to 'reportar un robo de bicicleta', new_theft_report_path, :class => 'btn btn-tertiary' %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--/.content -->
+  </div>
+  <!--/.container -->
+</div>
+<!--/.user-profile -->

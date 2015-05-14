@@ -60,6 +60,8 @@ class BikesController < ApplicationController
     @bikes = @current_user.bikes
   end
 
+  
+
 
   private
   def bike_params

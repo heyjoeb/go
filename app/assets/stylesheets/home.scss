@@ -819,8 +819,43 @@ body {padding:0; margin:0; background: #00b3b7; min-height:100%; height: 100%;}
     resize: none;
     height: 150px;
   }
-
+  .btn-purple {
+    margin-left: 30px;
+  }
 }
+.user-profile.my-reports {
+  height: 100%;
+  text-align: center;
+  background: #f52d32;
+  .report-list {
+    li {
+      overflow: hidden;
+      border-color: #ae1d21;
+    }
+    a {
+      float: left;
+      line-height: 2.2em;
+    }
+    span {
+      float: right;
+      margin-right: 20px;
+      padding-top: 5px;
+    }
+    .btn-close {
+      float: right;
+      border-radius: 50%;
+      background: #4d0069;
+      padding: 5px 10px;
+      height: 30px;
+      line-height: 1.5em;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
 
 
 /*  ----------------------------   
