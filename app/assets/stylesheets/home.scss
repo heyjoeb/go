@@ -752,10 +752,11 @@ body {padding:0; margin:0; background: #00b3b7; min-height:100%; height: 100%;}
     ABOUT
 -------------------------------- */
 .about {
-  background: url('../images/01.jpg');
+  background: image-url("01.jpg");
   background-size: cover;
   padding-bottom: 50px;
   text-align: center;
+  height: 100%;
   .content {;
     padding-bottom: 30px;
     padding-top: 30px;
@@ -767,7 +768,13 @@ body {padding:0; margin:0; background: #00b3b7; min-height:100%; height: 100%;}
     font-size: 1em;
   }
   h3 {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Varela Round';
   }
 }
 

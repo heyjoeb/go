@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bikes
   resources :store_reports
   resources :theft_reports
-
+  get '/about' => 'pages#about'
   get 'user_bikes' => 'bikes#user_bikes'
 
   get 'user_theft_reports' => 'theft_reports#user_theft_reports'

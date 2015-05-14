@@ -47,3 +47,4 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'devise'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem "table_print"
+gem 'fancybox2-rails'
