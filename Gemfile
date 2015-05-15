@@ -42,7 +42,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'pg'
+gem 'pg', group: :production
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'devise'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
