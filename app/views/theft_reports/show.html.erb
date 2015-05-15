@@ -1,0 +1,66 @@
+<div class="bike-report-detail">
+  <div class="container">
+    <div class="row content">
+      <div class="col-md-12">
+      <%= link_to "volver", 'javascript:history.go(-1);', :class => 'btn btn-back'  %>
+      </div>
+
+        <div class="col-md-12 section-title">
+          <h3 class="item-title">
+            <%= 'Marca: ' + @theftReports.bike.bike_brand + ' - '%>
+            <%= 'Modelo: ' + @theftReports.bike.bike_model + ' - '%>
+            <%= 'Color: ' + @theftReports.bike.bike_color %>
+          </h3>
+          <span class="item-serial-number">
+            <%= 'Serial: ' + @theftReports.bike.bike_serial %>
+          </span>
+          <time class="item-date">
+            <%= 'Fecha de robo: ' + @theftReports.created_at.to_s %>
+          </time>
+        </div>
+        <div class="col-md-12 item-info">
+          <div class="col-md-3 item-details">
+            <h4>Características de la bici</h4>
+            <p>
+              <%= @theftReports.bike.bike_details %>
+            </p>
+          </div>
+          <div class="col-md-3 theft-details">
+            <h4>Características del robo</h4>
+            <p>
+              <%= @theftReports.theft_details %>
+            </p>
+          </div>
+          <div class="col-md-3 theft-location">
+            <h4>Ubicación del robo</h4>
+            <p>
+              <%= @theftReports.theft_location %>
+            </p>
+          </div>
+          <div class="col-md-3 theft-status">
+            <h4>Estado del reporte</h4>
+            <p>
+              <%= @theftReports.status %>
+            </p>
+          </div>
+ 
+        <ul class="col-md-12 report-actions">
+          <h4>¿Cómo ayudar?</h4>
+          <li>
+            <span>contactar víctima:</span>
+            <%= current_user.email %>
+          </li>
+          <li><span>compartir:</span>
+            <%= request.original_url %>
+          </li>
+          <li>
+            <%= link_to 'reportar local que vende esta bicicleta', '/store_reports/new', :class => 'btn btn-secondary' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--/.content -->
+  </div>
+  <!--/.container -->
+</div>
+<!--/.bike-report-detail -->

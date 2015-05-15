@@ -20,7 +20,7 @@ $(document).ready(function(){
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
   });
 
-
+  /*
   // BOTÓN VISTA MAPA/LISTA
   $('.list-view').hide();
   $('.view-mode').click(function() {
@@ -40,7 +40,6 @@ $(document).ready(function(){
 
 
   });
-  /*
   // FANCYBOX //
   $('.fancybox').fancybox({
     padding: 0

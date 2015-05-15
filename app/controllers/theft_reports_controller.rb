@@ -30,7 +30,7 @@ class TheftReportsController < ApplicationController
   end
 
   def show
-    
+    @theftReports = TheftReport.find(params[:id])
   end
 
   def edit

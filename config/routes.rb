@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'reports/index'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home/index'
   resources :bikes

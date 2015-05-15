@@ -1,0 +1,126 @@
+<div class="search">
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-md-12 section-title">
+        <h2>
+        <span class="icon-container">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewbox="0 0 512 512"><g id="icomoon-ignore">
+        </g>
+        <path class="svg-icon" d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zM48 256c0-114.875 93.125-208 208-208 54.787 0 104.616 21.193 141.767 55.814l-205.767 88.186-88.186 205.767c-34.621-37.151-55.814-86.98-55.814-141.767zM292.583 292.583l-128.041 54.875 54.875-128.041 73.166 73.166zM256 464c-54.787 0-104.617-21.193-141.766-55.814l205.766-88.186 88.186-205.766c34.621 37.149 55.814 86.979 55.814 141.766 0 114.875-93.125 208-208 208z"></path>
+        </svg>
+        </span>
+        Buscar Reportes</h2>
+      </div>
+      <div class="col-md-4 col-md-offset-4 hero-text">
+        <p>
+          Busque por serial de marco, color o marca.
+        </p>
+      </div>
+      <div class="col-md-4 col-md-offset-4">
+        <form class="form">
+          <div class="form-group">
+            <label class="sr-only" for="search">buscar</label>
+            <input type="text" class="form-control search-field" id="search" placeholder="Haga su búsqueda...">
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-12">
+        <div class="map-bar">
+          <h3> 
+            <%= 'reportes de bicicletas robadas: ' + @theftReports.count.to_s %>
+          </h3>
+        </div>
+        <!--/.map-bar -->
+      </div>
+      <!--/.col-md-12 -->
+
+      <div class="col-md-12 view">
+        <div class="col-md-12 list-view">
+          <% if @theftReports.empty? %>
+            <p>
+              No se encontró ningún reporte de robo de bicicleta.
+            </p>
+            <% else %>
+              <% @theftReports.each do |theft_report| %>
+                <div class="col-md-3 item">
+                  <div class="item-info-top">
+                    <time class="item-date">
+                    <%= theft_report.created_at %>
+                    </time>
+                  </div>
+                  <div class="item-info-bottom">
+                    <div class="item-title-wrapper">
+                      <h3 class="item-title">
+                      <%= theft_report.bike.bike_name %>
+                      </h3>
+                      <span class="item-serial-number">
+                      <%= 'serial: ' + theft_report.bike.bike_serial %>
+                      </span><br>
+                      <span class="item-serial-number">
+                      <%= 'estado del reporte: ' + theft_report.status %>
+                      </span>
+                    </div>
+                    <%= link_to 'ver', [@theft_report, theft_report], :class => 'btn item-btn'%>
+                  </div>
+                </div>
+                <!--/.item -->
+
+              <% end %>
+          <% end %>
+        </div>
+        <!--/.list-view -->
+      </div>
+      <!--/.view -->
+
+      <div class="col-md-12">
+        <div class="map-bar">
+          <h3> 
+            <%= 'reportes de locales: ' + @storeReports.count.to_s %>
+          </h3>
+        </div>
+        <!--/.map-bar -->
+      </div>
+      <!--/.col-md-12 -->
+
+
+      <div class="col-md-12 view">
+        <div class="col-md-12 list-view">
+          <% if @storeReports.empty? %>
+            <p>
+              No se encontró ningún reporte de locales.
+            </p>
+            <% else %>
+              <% @storeReports.each do |store_report| %>
+                <div class="col-md-3 item">
+                  <div class="item-info-top">
+                    <time class="item-date">
+                    <%= store_report.created_at %>
+                    </time>
+                  </div>
+                  <div class="item-info-bottom">
+                    <div class="item-title-wrapper">
+                      <h3 class="item-title">
+                      <%= store_report.store_name %>
+                      </h3>
+                      <span class="item-serial-number">
+                      <%= 'estado del reporte: ' + store_report.status %>
+                      </span>
+                    </div>
+                    <%= link_to 'ver', [@store_report, store_report], :class => 'btn item-btn'%>
+                  </div>
+                </div>
+                <!--/.item -->
+
+              <% end %>
+          <% end %>
+        </div>
+        <!--/.list-view -->
+      </div>
+      <!--/.view -->
+    </div>
+    <!--/.content -->
+  </div>
+  <!--/.container-fluid -->
+</div>
+<!--/.search -->

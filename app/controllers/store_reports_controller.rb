@@ -27,7 +27,7 @@ class StoreReportsController < ApplicationController
   end
 
   def show
-    
+    @storeReport = StoreReport.find(params[:id])
   end
 
   def edit
