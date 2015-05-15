@@ -9,26 +9,28 @@
         <path class="svg-icon" d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zM48 256c0-114.875 93.125-208 208-208 54.787 0 104.616 21.193 141.767 55.814l-205.767 88.186-88.186 205.767c-34.621-37.151-55.814-86.98-55.814-141.767zM292.583 292.583l-128.041 54.875 54.875-128.041 73.166 73.166zM256 464c-54.787 0-104.617-21.193-141.766-55.814l205.766-88.186 88.186-205.766c34.621 37.149 55.814 86.979 55.814 141.766 0 114.875-93.125 208-208 208z"></path>
         </svg>
         </span>
-        Buscar Reportes</h2>
+        Buscar Reportes de Bicicletas</h2>
       </div>
       <div class="col-md-4 col-md-offset-4 hero-text">
         <p>
           Busque por serial de marco, color o marca.
         </p>
       </div>
-      <div class="col-md-4 col-md-offset-4">
-        <form class="form">
+      <div class="col-md-4 col-md-offset-4 search-">
           <div class="form-group">
-            <label class="sr-only" for="search">buscar</label>
-            <input type="text" class="form-control search-field" id="search" placeholder="Haga su búsqueda...">
+            <%= form_tag("/reports/index", method: "get") do %>
+              <%= label_tag(:q, "buscar", :class => 'sr-only') %>
+              <%= text_field_tag ':q', params[:q] , class:'form-control search-field', placeholder:'Haga su búsqueda...'%>
+              <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-purple' %>
+            <% end %>
           </div>
-        </form>
+       
       </div>
 
       <div class="col-md-12">
         <div class="map-bar">
           <h3> 
-            <%= 'reportes de bicicletas robadas: ' + @theftReports.count.to_s %>
+            <%= 'número de reportes de bicicletas robadas: ' + @theftReports.count.to_s %>
           </h3>
         </div>
         <!--/.map-bar -->
@@ -73,10 +75,21 @@
       </div>
       <!--/.view -->
 
+      <div class="col-md-12 section-title two">
+        <h2>
+        <span class="icon-container">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewbox="0 0 512 512"><g id="icomoon-ignore">
+        </g>
+        <path class="svg-icon" d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zM48 256c0-114.875 93.125-208 208-208 54.787 0 104.616 21.193 141.767 55.814l-205.767 88.186-88.186 205.767c-34.621-37.151-55.814-86.98-55.814-141.767zM292.583 292.583l-128.041 54.875 54.875-128.041 73.166 73.166zM256 464c-54.787 0-104.617-21.193-141.766-55.814l205.766-88.186 88.186-205.766c34.621 37.149 55.814 86.979 55.814 141.766 0 114.875-93.125 208-208 208z"></path>
+        </svg>
+        </span>
+        Reportes de Locales</h2>
+      </div>
+
       <div class="col-md-12">
         <div class="map-bar">
           <h3> 
-            <%= 'reportes de locales: ' + @storeReports.count.to_s %>
+            <%= 'número de reportes de locales: ' + @storeReports.count.to_s %>
           </h3>
         </div>
         <!--/.map-bar -->
