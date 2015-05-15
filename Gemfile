@@ -49,3 +49,4 @@ gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem "table_print"
 gem 'fancybox2-rails'
 gem 'rails_12factor', group: :production
+ruby "2.1.5p273"
